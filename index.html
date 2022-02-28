@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@200;300;400;700;800&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <title>Personal Portfolio Page</title>
+    </head>
+    <body>
+        <header>
+            <navigation id="navbar">
+                <div class="nav-container">
+                    <div class="nav-button">
+                        <input type="radio" id="light-theme-button" name="color-theme-button" value="light-theme-button" checked>
+                        <label for="light-theme-button" class="light-theme-label"><img src="images/sun-full-dark.svg" alt="Switch to light theme"></label>
+                        <input type="radio" id="dark-theme-button" name="color-theme-button" value="dark-theme-button">
+                        <label for="dark-theme-button" class="dark-theme-label"><img src="images/moon-full-dark.svg" alt="Switch to dark theme"></label>
+                    </div>
+                    <ul class="nav-menu">
+                        <li>Projects</li>
+                        <li>My Skills Kit</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+            </navigation>
+        </header>
+        <main>
+            <section id="welcome-section">
+                <h1>Hi there, I'm Daniela!</h1>
+                <p>a self-taught developer.</p>
+                <p>Pellentesque luctus magna non arcu fringilla, ac fringilla libero rhoncus. Ut velit dolor, accumsan nec scelerisque ut, varius eget turpis.</p>
+            </section>
+            <div class="main-wrapper">
+                <section id="projects">
+                    <article id="project-tile">
+
+                    </article>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <!--include an a tag with the id profile-link-->
+        </footer>
+        <script>
+
+            let darkThemeButton = document.querySelector("#dark-theme-button");
+            let lightThemeButton = document.querySelector("#light-theme-button");
+            
+            darkThemeButton.addEventListener("click", _ => {
+                document.body.classList.remove("light-theme");
+                document.body.classList.add("dark-theme");
+            });
+
+            lightThemeButton.addEventListener("click", _ => {
+                document.body.classList.remove("dark-theme");
+                document.body.classList.add("light-theme");
+            });
+        </script>
+    </body>
+</html>
