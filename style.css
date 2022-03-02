@@ -3,6 +3,8 @@
 1. Set background and text color for light/dark themes
 2. Create navigation and set up light/dark theme
 3. Create navigation burger menu
+4. Welcome section
+5. Projects section
 ==================================================*/
 
 *, *::before, *::after{
@@ -11,22 +13,46 @@
     padding: 0;
     text-decoration: none;
 }
+
+html {
+    scroll-behavior: smooth;
+}
 :root {
     --background-clr: hsl(0, 0%, 100%);
     --foreground-clr: hsl(0, 0%, 25%);
     --headers-clr: hsl(0, 0%, 0%);
+    --gradient: linear-gradient(to bottom,
+    #ffdee9,
+    #e9d7f4, 
+    #c0d5f9, 
+    #92d5eb,
+    #80d0c7);
+    --background-tiles: rgba(17, 17, 17, 0.1);
 }
 
 .dark-theme{
     --background-clr: hsl(0, 0%, 0%);
     --foreground-clr: hsl(0, 0%, 100%);
     --headers-clr: hsl(0, 0%, 100%);
+    --background-tiles: rgba(255, 255, 255, 0.2);
+    --gradient: linear-gradient(to bottom, 
+    #bfe9ff, 
+    #b4cfff, 
+    #d6aaf5, 
+    #fd7dbb, 
+    #ff5e62);
 }
 
 .light-theme{
     --background-clr: hsl(0, 0%, 100%);
     --foreground-clr: hsl(0, 0%, 25%);
     --headers-clr: hsl(0, 0%, 0%);
+    --gradient: linear-gradient(to bottom,
+    #ffdee9,
+    #e9d7f4, 
+    #c0d5f9, 
+    #92d5eb,
+    #80d0c7);
 }
 
 body{
@@ -54,11 +80,12 @@ a{
 header {
     box-shadow: 0px 3px 10px #999;
     left: 0;
-    margin-bottom: 2em;
     position: sticky;
     right: 0;
     top: 0;
     width: 100%;
+    background-color: rgba(255,255,255, 0.9);
+    z-index: 10;
 }
 
 .nav-container {
@@ -84,6 +111,7 @@ header {
 .nav-menu li {
     display: inline-block;
     font-family: 'Nunito', sans-serif;
+    color: hsl(0, 0%, 25%);
     font-size: 1.2rem;
     font-weight: 600;
     list-style: none;
@@ -169,6 +197,7 @@ header {
     .hidden-burger-menu li{
         list-style: none;
         margin-bottom: 1em;
+        color: hsl(0, 0%, 25%);
     }
 }
 
@@ -181,7 +210,7 @@ header {
 }
 
 .nav-burger-mobile span{
-    background-color: var(--foreground-clr);
+    background-color: hsl(0, 0%, 25%);
     border-radius: 10px;
     display: inline-block;
     position: relative;
@@ -195,7 +224,7 @@ header {
     width: 1.6rem;
     height: 3px;
     position: absolute;
-    background-color: var(--foreground-clr);
+    background-color: hsl(0, 0%, 25%);
     border-radius: 5px;
 }
 
@@ -213,6 +242,101 @@ header {
 
 .nav-burger-mobile input[type="checkbox"] ~ label {
     cursor: pointer;
+}
+
+/*================================================
+4. Welcome section
+==================================================*/
+
+#welcome-section {
+    height: 100vh;
+    background-image: var(--gradient);
+    background-size: 250% 250%;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+    animation: welcome-backgrd 15s linear infinite alternate;
+}
+
+@keyframes welcome-backgrd{
+    0% {background-position: 0 0;}
+    100% {background-position: 100% 100%;}
+}
+
+/*================================================
+5. Projects section
+==================================================*/
+
+.main-wrapper {
+    display: block;
+    margin: auto 3em;
+}
+
+#projects{
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: minmax(300px, auto);
+}
+
+#project-tile{
+    width: 100%;
+    max-width: 100%;
+    min-height: fit-content;
+    background: var(--background-tiles);
+    border: 1px ridge var(--background-tiles);
+    border-radius: 10px;
+    box-shadow: 5px 0 15px var(--background-tiles),
+    -5px 0 15px var(--background-tiles);
+}
+
+.project-one img,
+.project-two img,
+.project-three img,
+.project-four img,
+.project-five img,
+.project-six img{
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2em;
+    border-radius: 10px;
+}
+
+@media (min-width: 850px){
+    .main-wrapper {
+        margin: auto 8em;
+    }
+    #projects{
+        grid-template-columns: repeat(2, auto);
+    }
+}
+
+#project-tile img{
+    transition: transform 500ms ease-in-out;
+}
+
+.project-one img:hover,
+.project-one img:focus,
+.project-three img:hover,
+.project-three img:focus,
+.project-five img:hover,
+.project-five img:focus{
+    transform: rotate(-10deg) scale(1.2, 1.2);
+}
+
+.project-two img:hover,
+.project-two img:focus,
+.project-four img:hover,
+.project-four img:focus,
+.project-six img:hover,
+.project-six img:focus{
+    transform: rotate(10deg) scale(1.2, 1.2);
 }
 
 
