@@ -5,6 +5,7 @@
 3. Create navigation burger menu
 4. Welcome section
 5. Projects section
+6. Skills section
 ==================================================*/
 
 *, *::before, *::after{
@@ -60,19 +61,37 @@ body{
     color: var(--foreground-clr);
     font-family: 'BioRhyme', serif;
     font-weight: 300;
+    letter-spacing: 1.5;
     max-width: 100vw;
     min-height: 100vh;
+    line-height: 150%;
 }
 
 h1, h2, h3, h4, h5, h6{
     color: var(--headers-clr);
     font-family: 'Nunito', sans-serif;
     font-weight: 600;
+    letter-spacing: 1.5;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    line-height: 1.5;
 }
 
 a{
     color: inherit;
 }
+
+p{
+    font-size: 1rem;
+}
+ul li{
+    font-size: 1rem;
+    letter-spacing: 1.2;
+    line-height: 1.5;
+    margin-left: 2em;
+    margin-top: 0.5em;
+}
+
 
 /*================================================
 2. Create navigation and set up light/dark theme
@@ -248,6 +267,16 @@ header {
 4. Welcome section
 ==================================================*/
 
+h1{
+    font-size: 5rem;
+    text-shadow: 1px 1px 10px var(--background-clr);
+}
+
+#welcome-section p{
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 10px var(--background-clr);
+}
+
 #welcome-section {
     height: 100vh;
     background-image: var(--gradient);
@@ -277,16 +306,24 @@ header {
     margin: auto 3em;
 }
 
+#projects-header{
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 1em;
+}
+
 #projects{
     display: grid;
     grid-gap: 1em;
     grid-template-columns: minmax(300px, auto);
+    place-items: center;
 }
 
 #project-tile{
+    position: relative;
     width: 100%;
     max-width: 100%;
-    min-height: fit-content;
+    min-height: 70vh;
     background: var(--background-tiles);
     border: 1px ridge var(--background-tiles);
     border-radius: 10px;
@@ -302,23 +339,32 @@ header {
 .project-six img{
     width: 100%;
     height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2em;
+    padding: 1em;
     border-radius: 10px;
 }
 
-@media (min-width: 850px){
-    .main-wrapper {
-        margin: auto 8em;
+@media (min-width: 600px){
+    .project-tile-content{
+        width: 70%;
     }
+}
+@media (min-width: 1000px){
     #projects{
         grid-template-columns: repeat(2, auto);
+    }
+    #project-tile{
+        min-height: fit-content;
+    }
+}
+
+@media (min-width: 1300px){
+    .main-wrapper {
+        margin: auto 8em;
     }
 }
 
 #project-tile img{
-    transition: transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out, opacity 400ms ease-in-out;
 }
 
 .project-one img:hover,
@@ -339,5 +385,48 @@ header {
     transform: rotate(10deg) scale(1.2, 1.2);
 }
 
+/*project tile-contents cards*/
+
+.project-tile-content{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    opacity: 0;
+    transition: opacity 400ms ease-in 450ms;
+    width: 90%;
+    z-index: -1;
+    border-top: 1px solid var(--foreground-clr);
+    height: fit-content;
+}
+
+.project-tile-btn{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    margin-left: calc(50% - 3rem);
+    margin-top: 30vh;
+    margin-bottom: 2em;
+    cursor: pointer;
+    background-color: var(--foreground-clr);
+    color: var(--background-clr);
+    transition: background-color 200ms linear, color 200ms linear;
+}
+
+.project-tile-btn:hover{
+    background-color: var(--background-clr);
+    color: var(--foreground-clr);
+    border: 1px solid var(--foreground-clr);
+}
+
+@media (min-width: 650px){
+    .project-tile-btn{
+        margin-top: 2em;
+    }
+}
 
 
