@@ -429,4 +429,92 @@ h1{
     }
 }
 
+/*================================================
+6. Skills section
+==================================================*/
+
+#skills-sct{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 4em;
+    height: 250px;
+}
+
+#skills-header{
+    margin-top: 2em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+#skills-sct div{
+    text-align: center;
+    position: relative;
+}
+
+.skills-sct-C {
+    animation-timing-function: linear;
+    animation: logos-fwd 4s infinite alternate;
+}
+.skills-sct-html {
+    animation-timing-function: ease;
+    animation: logos-bkw 4s infinite alternate;
+}
+.skills-sct-css{
+    animation-timing-function: ease-in;
+    animation: logos-fwd 4s infinite alternate;
+}
+.skills-sct-js {
+    animation-timing-function: ease-out;
+    animation: logos-bkw 4s infinite alternate;
+}
+.skills-sct-python{
+    animation-timing-function: ease-in-out;
+    animation: logos-fwd 4s infinite alternate;
+}
+.skills-sct-sql{
+    animation-timing-function: ease-in;
+    animation: logos-bkw 4s infinite alternate;
+}
+.skills-sct-git {
+    animation-timing-function: ease;
+    animation: logos-fwd 4s infinite alternate;
+}
+.skills-sct-hr{
+    animation-timing-function: ease-in-out;
+    animation: logos-bkw 4s infinite alternate;
+}
+
+@keyframes logos-fwd {
+    0% {top: 150px;}
+    50% {top: 100px;}
+    70% {top: 50;}
+    100% {top: 0px;}
+}
+
+@keyframes logos-bkw {
+    0% {top: 0px;}
+    50% {top: 50px;}
+    70% {top: 100px;}
+    100% {top: 150px;}
+}
+
+@media (max-width: 890px){
+    #skills-sct{
+        flex-direction: column;
+        justify-content: left;
+    }
+    @keyframes logos-fwd{
+        0% {right: 0px;}
+        50% {right: 100px;}
+        100% {right: 150px;}
+    }
+    @keyframes logos-bkw{
+        0% {right: 150px;}
+        50% {right: 100px;}
+        100% {right: 0px;}
+    }
+}
+
+
 
