@@ -518,7 +518,7 @@ h1{
 
 .skills-sct-hr img{
     animation-timing-function: ease-in-out;
-    animation: logos-bkw 6s infinite;
+    animation: logos-bkw 4s infinite;
     transition: all 500ms ease-in-out;
 }
 
