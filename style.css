@@ -6,6 +6,7 @@
 4. Welcome section
 5. Projects section
 6. Skills section
+7. Contact section
 ==================================================*/
 
 *, *::before, *::after{
@@ -137,6 +138,28 @@ header {
     padding-left: 1.5em;
 }
 
+.nav-menu li a,
+.hidden-burger-dropdown li a{
+    position: relative;
+}
+
+.nav-menu li a::before,
+.hidden-burger-dropdown li a::before{
+    background-color: #80d0c7;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    content: "";
+    height: 2px;
+    width: 0%;
+    transition: width 300ms ease-in-out;
+}
+
+.nav-menu li a:hover::before,
+.hidden-burger-dropdown li a:hover::before{
+    width: 100%;
+}
+
 .nav-button input[type="radio"] {
     display: none;
 }
@@ -199,7 +222,7 @@ header {
 3. Create navigation burger menu
 ==================================================*/
 
-@media (max-width: 600px) {
+@media (max-width: 719px) {
     .nav-menu{
         display: none;
     }
@@ -214,13 +237,13 @@ header {
         min-height: 40vh;
     }
     .hidden-burger-menu li{
+        color: hsl(0, 0%, 25%);
         list-style: none;
         margin-bottom: 1em;
-        color: hsl(0, 0%, 25%);
     }
 }
 
-@media (min-width: 600px)
+@media (min-width: 719px)
 {
     .hidden-burger-menu,
     .hidden-burger-dropdown{
@@ -229,22 +252,22 @@ header {
 }
 
 .nav-burger-mobile span{
+    position: relative;
     background-color: hsl(0, 0%, 25%);
     border-radius: 10px;
     display: inline-block;
-    position: relative;
     height: 3px;
     width: 1.3rem;
 }
 
 .nav-burger-mobile span::before,
 .nav-burger-mobile span::after{
-    content: "";
-    width: 1.6rem;
-    height: 3px;
     position: absolute;
     background-color: hsl(0, 0%, 25%);
     border-radius: 5px;
+    content: "";
+    height: 3px;
+    width: 1.6rem;
 }
 
 .nav-burger-mobile span::before {
@@ -278,17 +301,17 @@ h1{
 }
 
 #welcome-section {
-    height: 100vh;
+    align-items: center;
     background-image: var(--gradient);
-    background-size: 250% 250%;
     background-position: 0 0;
     background-repeat: no-repeat;
-    text-align: center;
+    background-size: 250% 250%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    height: 100vh;
     margin-bottom: 1em;
+    text-align: center;
     animation: welcome-backgrd 15s linear infinite alternate;
 }
 
@@ -307,9 +330,11 @@ h1{
 }
 
 #projects-header{
-    text-align: center;
-    padding-top: 2em;
+    border-top: 1px solid var(--foreground-clr);
+    margin-top: 2em;
     padding-bottom: 1em;
+    padding-top: 2em;
+    text-align: center;
 }
 
 #projects{
@@ -321,12 +346,12 @@ h1{
 
 #project-tile{
     position: relative;
-    width: 100%;
+    background: var(--background-tiles);
+    border-radius: 10px;
+    border: 1px ridge var(--background-tiles);
     max-width: 100%;
     min-height: 70vh;
-    background: var(--background-tiles);
-    border: 1px ridge var(--background-tiles);
-    border-radius: 10px;
+    width: 100%;
     box-shadow: 5px 0 15px var(--background-tiles),
     -5px 0 15px var(--background-tiles);
 }
@@ -337,10 +362,10 @@ h1{
 .project-four img,
 .project-five img,
 .project-six img{
-    width: 100%;
+    border-radius: 10px;
     height: auto;
     padding: 1em;
-    border-radius: 10px;
+    width: 100%;
 }
 
 @media (min-width: 600px){
@@ -364,7 +389,7 @@ h1{
 }
 
 #project-tile img{
-    transition: transform 500ms ease-in-out, opacity 400ms ease-in-out;
+    transition: transform 500ms ease-in-out, opacity 400ms ease-in-out 415ms;
 }
 
 .project-one img:hover,
@@ -391,36 +416,36 @@ h1{
     position: absolute;
     top: 45%;
     left: 50%;
-    transform: translate(-50% , -50%);
-    opacity: 0;
-    transition: opacity 400ms ease-in 450ms;
-    width: 90%;
-    z-index: -1;
     border-top: 1px solid var(--foreground-clr);
     height: fit-content;
+    opacity: 0;
+    transform: translate(-50% , -50%);
+    transition: opacity 400ms ease-in-out 402ms;
+    width: 90%;
+    z-index: -1;
 }
 
 .project-tile-btn{
-    font-family: 'Nunito', sans-serif;
-    font-weight: 400;
-    font-size: 0.9rem;
-    padding: 0.6rem 1.2rem;
-    text-align: center;
-    border: none;
+    background-color: var(--foreground-clr);
     border-radius: 5px;
+    border: none;
+    color: var(--background-clr);
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 2em;
     margin-left: calc(50% - 3rem);
     margin-top: 30vh;
-    margin-bottom: 2em;
-    cursor: pointer;
-    background-color: var(--foreground-clr);
-    color: var(--background-clr);
+    padding: 0.6rem 1.2rem;
+    text-align: center;
     transition: background-color 200ms linear, color 200ms linear;
 }
 
 .project-tile-btn:hover{
     background-color: var(--background-clr);
-    color: var(--foreground-clr);
     border: 1px solid var(--foreground-clr);
+    color: var(--foreground-clr);
 }
 
 @media (min-width: 650px){
@@ -434,87 +459,81 @@ h1{
 ==================================================*/
 
 #skills-sct{
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin-top: 4em;
-    height: 250px;
+    width: 100%;
+    min-height: 250px;
 }
 
 #skills-header{
+    border-top: 1px solid var(--foreground-clr);
+    margin-bottom: 1em;
     margin-top: 2em;
     text-align: center;
-    margin-bottom: 1em;
 }
 #skills-sct div{
-    text-align: center;
     position: relative;
+    text-align: center;
 }
 
-.skills-sct-C {
-    animation-timing-function: linear;
-    animation: logos-fwd 4s infinite alternate;
-}
-.skills-sct-html {
-    animation-timing-function: ease;
-    animation: logos-bkw 4s infinite alternate;
-}
-.skills-sct-css{
-    animation-timing-function: ease-in;
-    animation: logos-fwd 4s infinite alternate;
-}
-.skills-sct-js {
-    animation-timing-function: ease-out;
-    animation: logos-bkw 4s infinite alternate;
-}
-.skills-sct-python{
+.skills-sct-hr img{
     animation-timing-function: ease-in-out;
-    animation: logos-fwd 4s infinite alternate;
-}
-.skills-sct-sql{
-    animation-timing-function: ease-in;
-    animation: logos-bkw 4s infinite alternate;
-}
-.skills-sct-git {
-    animation-timing-function: ease;
-    animation: logos-fwd 4s infinite alternate;
-}
-.skills-sct-hr{
-    animation-timing-function: ease-in-out;
-    animation: logos-bkw 4s infinite alternate;
+    animation: logos-bkw 6s infinite;
+    transition: all 500ms ease-in-out;
 }
 
-@keyframes logos-fwd {
-    0% {top: 150px;}
-    50% {top: 100px;}
-    70% {top: 50;}
-    100% {top: 0px;}
+#skills-sct div h4{
+    transition: font-weight 200ms linear;
 }
-
 @keyframes logos-bkw {
-    0% {top: 0px;}
-    50% {top: 50px;}
-    70% {top: 100px;}
-    100% {top: 150px;}
+    0%   {transform: rotate(0deg);}
+    25% {transform: rotate(0deg);}
+    50%  {transform: rotate(300deg);}
+    100%  {transform: rotate(0deg);}
 }
 
 @media (max-width: 890px){
     #skills-sct{
-        flex-direction: column;
-        justify-content: left;
+        flex-wrap: wrap;
     }
-    @keyframes logos-fwd{
-        0% {right: 0px;}
-        50% {right: 100px;}
-        100% {right: 150px;}
+    #skills-sct div img {
+        height: 48px;
+        width: 48px;
     }
-    @keyframes logos-bkw{
-        0% {right: 150px;}
-        50% {right: 100px;}
-        100% {right: 0px;}
+    #skills-sct .skills-sct-sql img{
+        height: auto;
+        width: 38px;
     }
 }
 
+#skills-sct div img:hover{
+    transform: scale(1.1, 1.1);
+}
+
+#skills-sct div img:hover ~ h4{
+    font-weight: 200;
+}
+
+
+/*================================================
+7. Contact section
+==================================================*/
+
+#footer-contact{
+    background-color: var(--foreground-clr);
+    border-top: 1px solid var(--foreground-clr);
+    box-shadow: 10px 0 15px var(--foreground-clr);
+    margin-top: 2em;
+    margin-top: 4em;
+    padding-bottom: 2em;
+    padding-top: 2em;
+    text-align: center;
+}
+
+#footer-contact > *{
+    color: var(--background-clr);
+}
 
 
