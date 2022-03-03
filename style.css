@@ -93,6 +93,10 @@ ul li{
     margin-top: 0.5em;
 }
 
+h2{
+    font-size: 2rem;
+}
+
 
 /*================================================
 2. Create navigation and set up light/dark theme
@@ -301,7 +305,6 @@ h1{
 }
 
 #welcome-section {
-    align-items: center;
     background-image: var(--gradient);
     background-position: 0 0;
     background-repeat: no-repeat;
@@ -309,6 +312,7 @@ h1{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     height: 100vh;
     margin-bottom: 1em;
     text-align: center;
