@@ -454,6 +454,40 @@ h1{
     }
 }
 
+/*change images for mobile version*/
+
+@media (max-width: 650px){
+    .project-one img{
+        content: url("images/Algorithms-small-screen.png");
+        width: 100%;
+        height: auto;
+    }
+
+    .project-two img{
+        content: url("images/Product-landing-page-small-screen.png");
+        width: 100%;
+        height: auto;
+    }
+
+    .project-three img{
+        content: url("images/Technical-doc-page-small-screen.png");
+        width: 100%;
+        height: auto;
+    }
+
+    .project-five img{
+        content: url("images/CS50-homepage-small-screen.png");
+        width: 100%;
+        height: auto;
+    }
+
+    .project-six img{
+        content: url("images/Survey-form-small-screen.png");
+        width: 100%;
+        height: auto;
+    }
+}
+
 /*================================================
 6. Skills section
 ==================================================*/
@@ -490,8 +524,7 @@ h1{
 @keyframes logos-bkw {
     0%   {transform: rotate(0deg);}
     25% {transform: rotate(0deg);}
-    50%  {transform: rotate(300deg);}
-    100%  {transform: rotate(0deg);}
+    100%  {transform: rotate(360deg);}
 }
 
 @media (max-width: 890px){
