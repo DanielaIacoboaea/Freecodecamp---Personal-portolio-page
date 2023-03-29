@@ -217,7 +217,7 @@ header {
     transition: left 500ms linear, right 500ms linear;
 }
 
-#light-theme-button:checked ~ .dark-theme-label::before {
+#light-theme-button:checked ~ .dark-theme-label::before{
     left: -100%;
     right: -100%;
 }
@@ -578,5 +578,6 @@ h1{
 #footer-contact > *{
     color: var(--background-clr);
 }
+
 
 
